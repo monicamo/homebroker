@@ -10,7 +10,6 @@ import {
 import { WalletsService } from './wallets.service';
 import { CreateWalletDto } from './dto/create-wallet.dto';
 import { UpdateWalletDto } from './dto/update-wallet.dto';
-import { WalletAsset } from './entities/wallet-asset.entity';
 
 @Controller('wallets')
 export class WalletsController {
