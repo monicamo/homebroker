@@ -22,7 +22,7 @@ GET http://localhost:3000/assets
 
 ###
 
-GET http://localhost:3000/assets/A2
+GET http://localhost:3000/assets/A1
 
 ###
 # @name createWallet
@@ -49,7 +49,7 @@ Content-Type: application/json
 
 {
     "assetId": "{{ assetId }}",
-    "quantity": 100
+    "shares": 100
 }
 
 ###

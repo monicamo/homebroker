@@ -1,7 +1,8 @@
-import { Asset, AssetDocument } from './../../assets/entities/asset.entity';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
+import crypto from 'crypto';
 import { WalletDocument } from './wallet.entity';
+import { Asset, AssetDocument } from '../../assets/entities/asset.entity';
 
 export type WalletAssetDocument = HydratedDocument<WalletAsset>;
 
@@ -24,5 +25,6 @@ export class WalletAsset {
 }
 
 export const WalletAssetSchema = SchemaFactory.createForClass(WalletAsset);
+//schema com tipos
 
 WalletAssetSchema.index({ wallet: 1, asset: 1 }, { unique: true });

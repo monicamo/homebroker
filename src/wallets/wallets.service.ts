@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { CreateWalletDto } from './dto/create-wallet.dto';
-import { UpdateWalletDto } from './dto/update-wallet.dto';
 import { Wallet } from './entities/wallet.entity';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { WalletAsset } from './entities/wallet-asset.entity';
+import { Asset } from '../assets/entities/asset.entity';
 
 @Injectable()
 export class WalletsService {
@@ -24,13 +24,14 @@ export class WalletsService {
   }
 
   findOne(id: string) {
-    this.walletAssetSchema.findById(id).populate([
+    return this.walletSchema.findById(id).populate([
       {
-        path: 'assets',
+        path: 'assets', //walletasset
         populate: ['asset'],
       },
-    ]);
-    return this.walletSchema.findById(id);
+    ]) as Promise<
+      (Wallet & { assets: (WalletAsset & { asset: Asset })[] }) | null
+    >;
   }
 
   async createWalletAsset(data: {
@@ -70,13 +71,5 @@ export class WalletsService {
     } finally {
       await session.endSession();
     }
-  }
-
-  update(id: string, updateWalletDto: UpdateWalletDto) {
-    return `This action updates a #${id} wallet`;
-  }
-
-  remove(id: string) {
-    return `This action removes a #${id} wallet`;
   }
 }
