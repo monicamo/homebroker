@@ -3,13 +3,68 @@
 # @name createAsset
 POST http://localhost:3000/assets
 Content-Type: application/json
+[ 
+    {
+        "name": "Amazon",
+        "symbol": "AMZN",
+        "price": 100,
+        "image": "AMZN.png"
+    },
+    {
+        "name": "Sales",
+        "symbol": "SAL",
+        "price": 200,
+        "image": "CRM.png"
+    },
+    {
+        "name": "Google",
+        "symbol": "GOOG",
+        "price": 300,
+        "image": "GOOGL.png"
+    },
+    {
+        "name": "Coca-Cola",
+        "symbol": "KO",
+        "price": 400,
+        "image": "KO.png"
+    },
+    {
+        "name": "Mac Donalds",
+        "symbol": "MCD",
+        "price": 500,
+        "image": "MCD.png"
+    },
+    {
+        "name": "Mercado Livre",
+        "symbol": "MELI",
+        "price": 600,
+        "image": "MELI.png"
+    },
+    {
+        "name": "Facebook",
+        "symbol": "META",
+        "price": 700,
+        "image": "META.png"
+    },
+    {
+        "name": "Ndivia",
+        "symbol": "NVDA",
+        "price": 800,
+        "image": "NVDA.png"
+    },
+    
+]
+###
 
-{
-    "name": "Amazon1",
-    "symbol": "A1",
-    "price": 100,
-    "image": "AMZN.png"
-}
+POST http://localhost:3000/assets
+Content-Type: application/json
+
+    {
+        "name": "Google",
+        "symbol": "GOOG",
+        "price": 300,
+        "image": "GOOGL.png"
+    }
 
 ###
 
