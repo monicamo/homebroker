@@ -8,7 +8,9 @@
   "scripts": {
     "check": "npx prettier --check .",
     "write": "npx prettier --write .",
+    "starter:dev": "kill-port 3000 && nest start --watch",
     "run": "npm run start:dev",
+    "assets-images": "npx serve -l tcp://127.0.0.1:9000 ./assets",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -24,10 +26,13 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.1",
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/platform-socket.io": "^11.0.10",
+    "@nestjs/websockets": "^11.0.10",
     "mongoose": "^8.10.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"

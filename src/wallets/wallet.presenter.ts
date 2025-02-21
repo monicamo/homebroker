@@ -14,7 +14,7 @@ export class WalletPresenter {
       assets: this.wallet.assets.map((walletAsset) => {
         const assetPresenter = new AssetPresenter(walletAsset.asset);
         return {
-          asset: assetPresenter.toJSON(),
+          asset: assetPresenter.toJSON() || null,
           shares: walletAsset.shares,
         };
       }),
